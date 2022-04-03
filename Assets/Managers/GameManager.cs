@@ -69,9 +69,12 @@ public class GameManager : MonoBehaviour
 
             var walkingDead = Zombies.Where(x => !x.IsDead).ToArray();
 
-            if (walkingDead.Length > 0)
+            if (Wave > 3)
             {
-                SetDeadZombie(walkingDead[Random.Range(0, walkingDead.Length - 1)]);
+                if (walkingDead.Length > 0)
+                {
+                    SetDeadZombie(walkingDead[Random.Range(0, walkingDead.Length - 1)]);
+                }
             }
         }
         
