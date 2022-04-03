@@ -43,7 +43,7 @@ public class FortArmorText : MonoBehaviour
             CompletionText.text = $"Completion: {Fort.DoneParts.Count()}/{Fort.Parts.Length}";
             DamagedText.text = $"Damaged: {Fort.DamagedParts.Count()}";
 
-            TimeText.text = Manager.IsDay ? "Gather while you can!" : "God will save you in.";
+            TimeText.text = Manager.IsDay ? "Gather while you can!" : "God will save you soon";
 
             WaveText.text = Manager.IsDay ? "" : $"Wave{Environment.NewLine}{Manager.Wave}";
             ZombiesText.text = Manager.IsDay ? "" : $"Zombies{Environment.NewLine}{Manager.Zombies.Count(x => !x.IsDead)}";
