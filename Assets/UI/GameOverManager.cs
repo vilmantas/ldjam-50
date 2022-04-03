@@ -12,6 +12,8 @@ public class GameOverManager : MonoBehaviour
     public GameManager Manager;
 
     public TextMeshProUGUI Text;
+    public TextMeshProUGUI Text2;
+    public TextMeshProUGUI Text3;
 
     public Image background;
 
@@ -35,6 +37,10 @@ public class GameOverManager : MonoBehaviour
         var Rekt = background.GetComponent<RectTransform>();
         
         var rect = Rekt.rect;
+        
+        Text.color = new Color(Text.color.r, Text.color.g, Text.color.b ,0);
+        Text2.color = new Color(Text2.color.r, Text2.color.g, Text2.color.b ,0);
+        Text3.color = new Color(Text2.color.r, Text2.color.g, Text2.color.b ,0);
         
         Rekt.sizeDelta = new Vector2(0, 10);
 
@@ -63,7 +69,7 @@ public class GameOverManager : MonoBehaviour
 
             Rekt.sizeDelta = new Vector2(newSize, Rekt.sizeDelta.y);
             
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.0025f);
         }
     }
     
@@ -79,7 +85,7 @@ public class GameOverManager : MonoBehaviour
 
             Rekt.sizeDelta = new Vector2(Rekt.sizeDelta.x, newSize);
 
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.0025f);
         }
     }
     
@@ -92,8 +98,10 @@ public class GameOverManager : MonoBehaviour
             var newColor = Mathf.Lerp(0, 1, percentDone);
 
             Text.color = new Color(Text.color.r, Text.color.g, Text.color.b ,newColor);
+            Text2.color = new Color(Text2.color.r, Text2.color.g, Text2.color.b ,newColor);
+            Text3.color = new Color(Text3.color.r, Text3.color.g, Text3.color.b ,newColor);
             
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.0025f);
         }
     }
 }

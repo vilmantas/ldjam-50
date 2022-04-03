@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -59,7 +60,18 @@ public class GameManager : MonoBehaviour
             Volume = Volume == 1 ? 0 : 1;
         }
         
-        if (GameOver) return;
+        if (GameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("Scenes/Main");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Scenes/Intro");
+            }
+        };
 
         NextLightningStrike -= Time.deltaTime;
 
