@@ -361,14 +361,14 @@
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
+     <Reference Include="clipper_library">
+     <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.cinemachine@2.8.4\Runtime\ThirdParty\clipper_library.dll</HintPath>
+     </Reference>
      <Reference Include="ReportGeneratorMerged">
      <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="clipper_library">
-     <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.cinemachine@2.8.4\Runtime\ThirdParty\clipper_library.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>C:\Users\Vilmantas\Desktop\Code\unity-stuff\ldjam-50\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>

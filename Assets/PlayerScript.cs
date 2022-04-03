@@ -6,6 +6,10 @@ using UnityEngine.AI;
 
 public class PlayerScript : MonoBehaviour
 {
+    public AudioSource PickUpSource;
+
+    public AudioSource DepositSource;
+    
     public GameObject Fort;
     
     public LayerMask InterractableLayer;
@@ -109,6 +113,8 @@ public class PlayerScript : MonoBehaviour
             other.transform.SetParent(ResourceParent.transform);
             
             other.transform.localPosition = Vector3.zero;
+            
+            PickUpSource.Play();
         }
     }
 

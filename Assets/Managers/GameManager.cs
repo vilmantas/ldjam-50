@@ -1,12 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
+    public LightningScript Lightning;
+    
     public ZombieSpawnScript[] SpawnPoints;
 
     public Transform ZombieSpawnArea;
@@ -29,16 +34,46 @@ public class GameManager : MonoBehaviour
 
     public CycleChangedEvent CycleChanged;
 
-    public List<GameObject> Zombies = new List<GameObject>();
+    public List<ZombieScript> Zombies = new List<ZombieScript>();
 
     public int Wave = 1;
     
     public bool GameOver => !Fort.IsAlive;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public int Volume = 1;
+
+    public float TimeBetweenLightningStrikes = 20f;
+
+    public float NextLightningStrike = 9990f;
     
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Volume = Volume == 1 ? 0 : 1;
+        }
+        
         if (GameOver) return;
+
+        NextLightningStrike -= Time.deltaTime;
+
+        if (NextLightningStrike < 0)
+        {
+            NextLightningStrike = TimeBetweenLightningStrikes + Random.Range(-Wave, 0);
+
+            var walkingDead = Zombies.Where(x => !x.IsDead).ToArray();
+
+            if (walkingDead.Length > 0)
+            {
+                SetDeadZombie(walkingDead[Random.Range(0, walkingDead.Length - 1)]);
+            }
+        }
         
         TimeLeft -= Time.deltaTime;
 
@@ -66,16 +101,30 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator KillZombies()
     {
-        Zombies.ForEach(x => StartCoroutine(DelayedDestroy(Random.Range(0.1f, 0.8f), x)));
+        Zombies.ForEach(KillZombie);
 
         yield return new WaitForSeconds(1f);
         
         Zombies.Clear();
     }
 
+    public void SetDeadZombie(ZombieScript zombie)
+    {
+        StartCoroutine(Lightning.LightningToggle(zombie.transform.position));
+        
+        zombie.SetDead();
+    }
+
+    public void KillZombie(ZombieScript zombie)
+    {
+        StartCoroutine(DelayedDestroy(Random.Range(0.1f, 0.8f), zombie));
+    }
+
     public void SpawnZombies()
     {
-        for (int i = 0; i < Random.Range(Wave, Wave * 2); i++)
+        var zombieCount = Random.Range(Wave + 1, Wave + 2);
+        
+        for (int i = 0; i < zombieCount; i++)
         {
             var spawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length - 1)].Point;
 
@@ -87,7 +136,7 @@ public class GameManager : MonoBehaviour
 
             zmb.Priority = i;
             
-            Zombies.Add(instance);
+            Zombies.Add(zmb);
 
             StartCoroutine(DelayedEnable(Random.Range(1f, 1.4f), instance));
         }
@@ -100,11 +149,16 @@ public class GameManager : MonoBehaviour
         instance.SetActive(true);
     }
     
-    public IEnumerator DelayedDestroy(float delay, GameObject instance)
+    public IEnumerator DelayedDestroy(float delay, ZombieScript instance)
     {
         yield return new WaitForSeconds(delay);
+
+        if (!instance.IsDead)
+        {
+            SetDeadZombie(instance);
+        }
         
-        Destroy(instance);
+        Destroy(instance.gameObject);
     }
 }
 

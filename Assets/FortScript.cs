@@ -79,6 +79,8 @@ public class FortScript : MonoBehaviour
         if (player.Resource != null)
         {
             DepositResource(player.Resource);
+
+            player.DepositSource.Play();
             
             Destroy(player.Resource.gameObject, 0.1f);
         }

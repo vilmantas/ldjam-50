@@ -14,6 +14,8 @@ public class TimerScript : MonoBehaviour
 
     public Image Im;
 
+    public bool ChangeColor = true;
+
     public float StartingWidth;
     
     // Start is called before the first frame update
@@ -37,9 +39,13 @@ public class TimerScript : MonoBehaviour
         
         var newSize = Mathf.Lerp(0, StartingWidth, percentLeft);
 
-        var newColor = (byte)Mathf.Lerp(0, 255, percentLeft);
+        if (ChangeColor)
+        {
+            var newColor = (byte)Mathf.Lerp(0, 255, percentLeft);
 
-        Im.color = new Color32( Manager.IsDay ? (byte)255 : newColor, !Manager.IsDay ? (byte)255 : newColor, !Manager.IsDay ? (byte)255 : newColor ,255);
+            Im.color = new Color32( Manager.IsDay ? (byte)255 : newColor, !Manager.IsDay ? (byte)255 : newColor, !Manager.IsDay ? (byte)255 : newColor ,255);    
+        }
+        
         
         Rekt.sizeDelta = new Vector2(newSize, Rekt.sizeDelta.y);
     }

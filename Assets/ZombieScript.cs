@@ -20,6 +20,14 @@ public class ZombieScript : MonoBehaviour
 
     public bool Attacking = false;
 
+    public bool IsDead = false;
+
+    public void SetDead()
+    {
+        IsDead = true;
+        gameObject.SetActive(false);
+    }
+    
     private void Update()
     {
         if (Manager.GameOver) return;
@@ -58,8 +66,6 @@ public class ZombieScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("ENTERED");
-        
         if (Agent == null) return;
 
         if (!other.CompareTag("Fort")) return;
@@ -76,7 +82,7 @@ public class ZombieScript : MonoBehaviour
             
             Animator.SetTrigger("Attacking");
         
-            StartCoroutine(Attack());    
+            // StartCoroutine(Attack());    
         }
     }
 
