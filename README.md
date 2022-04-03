@@ -1,4 +1,4 @@
-![logo.png](https://static.jam.vg/raw/8f2/9/z/493e9.png)
+![logo.png](https://i.imgur.com/A8skBhe.png)
 
 ### Description:
 
@@ -6,7 +6,7 @@ After stumbling into an ancient cemetery you've found yourself surrounded by wal
 
 All they want is to get a hold of that sweet sweet brain of yours. Is that so much to ask?
 
-You can only stay inside and hope that the fortifications on the shelter you just so happen to stumble across will hold against the unending onslaughts of the dead. 
+You can only stay inside and hope that the fortifications on the shelter (that you just so happen to stumble across) will hold against the unending onslaughts of the dead.
 
 They will not stop. They will make you join them.
 
@@ -16,7 +16,7 @@ The dead come in waves (and at very specific intervals, weird, huh?). After each
 
 ### Game instructions:
 
-Timer at the top displays the amount of time you have for ***gathering supplies*** comes or before ***zombies die of exhaustion***.
+Timer at the top displays the amount of time you have for ***gathering supplies*** comes or before ***zombies get smitten by God***.
 
 When the zombies are coming the player automatically retreats to the ***shelter***. No further actions can be made while zombies are present.
 
@@ -28,6 +28,8 @@ If armor reaches zero - you're done.
 
 Scattered around the map are ***crates*** that can be ***opened*** for a random amount of supplies (1-4 planks). Bring the ***planks*** back to the ***shelter*** to fix it up or to ***add fortifications***
 
+***Lightning*** will sometimes strike random zombies during the onslaught phase. Don't rely on it to save you though.
+
 ----
 
 ### Controls:
@@ -35,6 +37,8 @@ Scattered around the map are ***crates*** that can be ***opened*** for a random 
 * **Press LEFT MOUSE button to MOVE the PLAYER**
 
 * **Press SPACE when near a CRATE to OPEN it.**
+
+* **Press M to MUTE the sounds**
 
 
 ----
@@ -53,6 +57,18 @@ Scattered around the map are ***crates*** that can be ***opened*** for a random 
 
 
 ----
+
+ ### Tools used:
+
+ * Game engine: [Unity 2021.2](https://unity.com/)
+
+ * Code was developed using [JetBrains Rider](https://www.jetbrains.com/rider/).
+
+ * 3d models and textures were made using [Blender 3.1](https://www.blender.org/).
+
+ * Sounds were generated using sfxr.me
+
+ ----
 
 
 ##### This is my first solo LDJAM! Good luck to those that are going to try to survive! 
