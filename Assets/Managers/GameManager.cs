@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnZombies()
     {
-        var zombieCount = Random.Range(Wave + 1, Wave + 2);
+        var zombieCount = Random.Range(Wave * 2, (Wave + 2) * 2);
         
         for (int i = 0; i < zombieCount; i++)
         {
