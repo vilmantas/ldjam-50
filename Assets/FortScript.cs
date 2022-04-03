@@ -93,6 +93,8 @@ public class FortScript : MonoBehaviour
 
     public void BuildCurrentPart(int amount)
     {
+        if (amount <= 0) return;
+    
         if (DamagedParts.Any())
         {
             amount = DamagedParts.First().Fix(amount);
