@@ -43,13 +43,16 @@
   <ItemGroup>
      <Compile Include="Assets\UI\CanvasManager.cs" />
      <Compile Include="Assets\Managers\GameManager.cs" />
+     <Compile Include="Assets\ZombieAnimeScript.cs" />
      <Compile Include="Assets\ZombieScript.cs" />
      <Compile Include="Assets\ResourceComponent.cs" />
+     <Compile Include="Assets\ZombieIntroScript.cs" />
      <Compile Include="Assets\PlayerScript.cs" />
      <Compile Include="Assets\FortPart.cs" />
      <Compile Include="Assets\ZombieSpawnScript.cs" />
      <Compile Include="Assets\UI\TimerScript.cs" />
      <Compile Include="Assets\UI\GameOverManager.cs" />
+     <Compile Include="Assets\PeteAnimeScript.cs" />
      <Compile Include="Assets\z_Trash\LightScript.cs" />
      <Compile Include="Assets\FortScript.cs" />
      <Compile Include="Assets\BlockerScript.cs" />
@@ -58,9 +61,6 @@
      <Compile Include="Assets\GameStartScript.cs" />
      <Compile Include="Assets\Managers\MouseManager.cs" />
      <Compile Include="Assets\LightningScript.cs" />
-     <Compile Include="Assets\ZombieAnimeScript.cs" />
-     <Compile Include="Assets\PeteAnimeScript.cs" />
-     <Compile Include="Assets\ZombieIntroScript.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
